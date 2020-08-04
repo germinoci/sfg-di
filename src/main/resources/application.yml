@@ -1,0 +1,19 @@
+germinoci:
+  jsm:
+    username: JMS Username
+    password: nejakeheslo
+    dburl: dafsdfasdf
+
+  username: PetrYml
+
+# hierarchy
+#https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config
+
+--- # new document
+
+spring:
+  profiles: de
+
+germinoci:
+  jsm:
+    username: new document jms only if de
