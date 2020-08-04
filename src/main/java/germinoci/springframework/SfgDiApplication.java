@@ -2,6 +2,7 @@ package germinoci.springframework;
 
 import germinoci.springframework.controllers.MyController;
 import germinoci.springframework.examplebeans.FakeDataSource;
+import germinoci.springframework.examplebeans.FakeJmsBroker;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -26,6 +27,12 @@ public class SfgDiApplication {
         System.out.println(fakeDataSource.getPassword());
         System.out.println(fakeDataSource.getUrl());
         System.out.println(fakeDataSource.getUser());
+
+
+        FakeJmsBroker fakeJmsBroker = (FakeJmsBroker) ctx.getBean(FakeJmsBroker.class);
+        System.out.println(fakeJmsBroker.getPassword());
+        System.out.println(fakeJmsBroker.getUrl());
+        System.out.println(fakeJmsBroker.getUser());
 //
 //        System.out.println("----------------Primary Bean");
 //        System.out.println(myController.hello());

@@ -2,28 +2,13 @@ package germinoci.springframework.config;
 
 import germinoci.springframework.examplebeans.FakeDataSource;
 import germinoci.springframework.examplebeans.FakeJmsBroker;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.PropertySources;
-import org.springframework.core.env.Environment;
 
 @Configuration
-//@PropertySource({"classpath:datasource.properties", "classpath:jms.properties"})
-// alternativa
-@PropertySources(
-    {
-        @PropertySource("classpath:datasource.properties"),
-        @PropertySource("classpath:jms.properties")
-    }
 
-)
 public class PropertyConfig {
-
-    @Autowired
-    Environment env;
 
     //datasource
     @Value("${germinoci.username}")
@@ -46,8 +31,8 @@ public class PropertyConfig {
         FakeDataSource fakeDataSource = new FakeDataSource();
         fakeDataSource.setPassword(password);
         fakeDataSource.setUrl(url);
-        // fakeDataSource.setUser(user);
-        fakeDataSource.setUser(env.getProperty("GERMINOCIx_USERNAME"));// idea overide user environment variables
+         fakeDataSource.setUser(user);
+//        fakeDataSource.setUser(env.getProperty("GERMINOCIx_USERNAME"));// idea overide user environment variables
         return fakeDataSource;
     }
 
